@@ -1,12 +1,5 @@
-/**
- * ================================================================
- * NOIR PORTFOLIO — JavaScript
- * Handles scroll animations, smooth navigation & image fallback
- * ================================================================
- */
-
-// ────────────────────────────────────────────────────────────────
-// 1. SCROLL ANIMATIONS (fade-up effect)
+// ───────────────────────────────────────────────────────────────
+// 1. SCROLL ANIMATIONS
 // ────────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -61,7 +54,7 @@ document.querySelectorAll('.site-nav a').forEach((link) => {
 });
 
 // ────────────────────────────────────────────────────────────────
-// 3. IMAGE ERROR HANDLING
+// 3. IMAGE LOAD STATUS 
 // ────────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -69,24 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const pfpBack = document.querySelector('.pfp-back');
 
   if (pfpFront) {
+    pfpFront.addEventListener('load', () => {
+      console.log('Front PFP image loaded successfully');
+    });
     pfpFront.addEventListener('error', () => {
-      console.warn('Front PFP image failed to load — using fallback symbol.');
-      console.log('The image will show a "◈" symbol instead.');
+      console.warn('Front PFP image failed to load');
     });
   }
 
   if (pfpBack) {
+    pfpBack.addEventListener('load', () => {
+      console.log('Back PFP image loaded successfully');
+    });
     pfpBack.addEventListener('error', () => {
-      console.warn('Back PFP image failed to load — using fallback symbol.');
-      console.log('The image will show a "◈" symbol instead.');
+      console.warn('Back PFP image failed to load');
     });
   }
 });
-
-// ────────────────────────────────────────────────────────────────
-// 4. CONSOLE WELCOME (fun easter egg)
-// ────────────────────────────────────────────────────────────────
-
-console.log('%c Noir · Portfolio ', 'background: #000; color: #fff; font-size: 1.5rem; padding: 0.5rem 1rem; border: 2px solid #fff;');
-console.log('%c Built with ❤️ by Noir Studios', 'color: #888; font-size: 0.9rem;');
-console.log('%c PFP images are in grayscale (black & white)', 'color: #666; font-size: 0.8rem;');
