@@ -112,35 +112,19 @@ body {
   border-radius: 50%;
   background-size: cover;
   background-position: center;
-  /* GRAYSCALE — black & white! */
   filter: grayscale(100%);
 }
 
 /* ================================================================
-   PINTEREST IMAGES — Using /originals/ URL
+   Profile Pictures (PFP)
    ================================================================ */
 .pfp-front {
-  background-image: url('https://i.pinimg.com/originals/20/88/8f/20888f4b937b9f5294104dce22418e44.jpg');
+  background-image: url('https://i.pinimg.com/originals/d1/c4/95/d1c49546135f9f7b5d25db87da8138d0.jpg');
 }
 
 .pfp-back {
-  background-image: url('https://cdn.wallpapersafari.com/31/35/rIMoQi.jpg');
+  background-image: url('https://i.pinimg.com/736x/89/33/90/893390086c8339e53ddec35168a77145.jpg');
   transform: rotateY(180deg);
-}
-
-/* Fallback if images don't load */
-.pfp-front::after,
-.pfp-back::after {
-  content: "◈";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-  color: #444;
-  width: 100%;
-  height: 100%;
-  background: #0a0a0a;
-  border-radius: 50%;
 }
 
 /* --- Name --- */
@@ -231,7 +215,7 @@ body {
 .project-card {
   display: block;
   border: 2px solid #ffffff;
-  padding: 1.8rem 1.5rem;
+  padding: 1.5rem;
   background: #000000;
   color: #e0e0e0;
   text-decoration: none;
@@ -243,18 +227,27 @@ body {
   background: #0a0a0a;
 }
 
-.project-card .icon {
-  font-size: 1.6rem;
-  color: #666;
-  margin-bottom: 0.8rem;
-  display: block;
+/* --- Project Image (small preview) --- */
+.project-image {
+  width: 100%;
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 1rem;
+  border: 1px solid #333;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  filter: grayscale(0%);
 }
 
 .project-card h3 {
   font-size: 1.2rem;
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .project-card p {
